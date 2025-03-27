@@ -41,6 +41,13 @@
     <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
 
     <script>
+        // 等待頁面完全加載後再執行 System.import
+        window.onload = function() {
+            System.import('./index.js').catch(function(err) { console.error(err); });
+        }
+    </script>
+  </body>
+</html>
         System.import('./index.js').catch(function(err) { console.error(err); })
     </script>
   </body>

@@ -2,9 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-
     <title>Cocos Creator | NewProject</title>
-
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="mobile-web-app-capable" content="yes"/>
@@ -12,13 +10,14 @@
     <meta name="screen-orientation" content="portrait"/>
     <meta name="x5-fullscreen" content="true"/>
     <meta name="360-fullscreen" content="true"/>
-
     <meta name="renderer" content="webkit"/>
     <meta name="force-rendering" content="webkit"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-
     <link rel="stylesheet" type="text/css" href="./style.css"/>
     <link rel="icon" href="favicon.ico"/>
+    
+    <!-- 引入 SystemJS 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.11.0/dist/s.js"></script>
   </head>
   <body>
     <h1 class="header">NewProject</h1>
@@ -31,19 +30,18 @@
     <p class="footer">
       Created with <a href="https://www.cocos.com/products" title="Cocos Creator">Cocos Creator</a>
     </p>
+
     <!-- Polyfills bundle. -->
+    <script src="src/polyfills.bundle.js" charset="utf-8"> </script>
 
-<script src="src/polyfills.bundle.js" charset="utf-8"> </script>    
+    <!-- SystemJS 支持 -->
+    <script src="src/system.bundle.js" charset="utf-8"> </script>
 
+    <!-- Import map -->
+    <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
 
-<!-- SystemJS support. -->
-<script src="src/system.bundle.js" charset="utf-8"> </script>
-
-<!-- Import map -->
-<script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
-
-<script>
-    System.import('./index.js').catch(function(err) { console.error(err); })
-</script>
+    <script>
+        System.import('./index.js').catch(function(err) { console.error(err); })
+    </script>
   </body>
 </html>
